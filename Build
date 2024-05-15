@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    def dockerImage = docker.build("my-docker-image")
+                    dockerImage.push()
+                }
+            }
+        }
+    }
+}
